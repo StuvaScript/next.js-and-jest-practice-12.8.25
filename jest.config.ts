@@ -25,7 +25,7 @@ const config: Config = {
   // clearMocks: false,
 
   // Indicates whether the coverage information should be collected while executing the test
-  // collectCoverage: false,
+  collectCoverage: true, //* <-- coverage folder gets created and you can run the index.html file in the browser for a full report
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   // collectCoverageFrom: undefined,
@@ -116,7 +116,19 @@ const config: Config = {
   // projects: undefined,
 
   // Use this configuration option to add custom reporters to Jest
-  // reporters: undefined,
+  //* ``** npm install -D the jest-html-reporter package, , add this config, rerun your test, open the new test-report.html in browser to see a clearer picture of what the terminal shows you
+  reporters: [
+    "default",
+    [
+      "./node_modules/jest-html-reporter",
+      {
+        pageTitle: "Test Report",
+        includeFailureMsg: true,
+        includeConsoleLog: true,
+        sort: "titleAsc",
+      },
+    ],
+  ],
 
   // Automatically reset mock state before every test
   // resetMocks: false,

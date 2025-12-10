@@ -7,12 +7,15 @@ describe("Home", () => {
     //* ``** Three A's **``
 
     //* ``** Arrange **``
+    //? ``** Preparing the data
     render(<Home />);
 
     //* ``** Act **``
+    //? ``** Execute the method you want to test
     const heading = screen.getByRole("heading", { level: 1 });
 
     //* ``** Assert **``
+    //? ``** Checking the outcome is what you expected
     expect(heading).toBeInTheDocument();
   });
 
