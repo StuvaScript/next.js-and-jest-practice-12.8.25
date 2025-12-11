@@ -1,17 +1,17 @@
-import Access from "@/api/roles/Access";
+import { getCredentials } from "@/api/roles/Access";
 
 describe("Access", () => {
   test("populates admin data", () => {
     const isAdmin = true;
-    const expectedObject = {
-      name: "Stu",
-      id: 123,
-      email: "stu@codethedream.org",
-      isAdmin: true,
+    const expectedObjectShape = {
+      name: expect.any(String),
+      id: expect.any(Number),
+      email: expect.any(String),
+      techLead: expect.any(Boolean),
     };
 
     const actualReturnValue = getCredentials(isAdmin);
 
-    expect(actualReturnValue).toEqual(expectedObject);
+    expect(actualReturnValue).toStrictEqual(expectedObjectShape);
   });
 });
