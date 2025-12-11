@@ -28,7 +28,10 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "**/*.mts"
-, "__tests__/Home.test.js", "__tests__/math.test.js", "lib/async.ts"  ],
+    "**/*.mts",
+    "__tests__/app.test/Home.test.js",
+    "__tests__/lib.test/math.test.js",
+    "lib/async.ts"
+  ],
   "exclude": ["node_modules"]
 }
