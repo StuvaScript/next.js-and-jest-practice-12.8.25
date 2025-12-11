@@ -1,5 +1,12 @@
 import { getCredentials } from "@/api/roles/Access";
 
+const expectedObjectShape = {
+  name: expect.any(String),
+  id: expect.any(Number),
+  email: expect.any(String),
+  techLead: expect.any(Boolean),
+};
+
 describe("Access", () => {
   const testCases = [
     {
@@ -7,12 +14,7 @@ describe("Access", () => {
       input: {
         isAdmin: true,
       },
-      expected: {
-        name: expect.any(String),
-        id: expect.any(Number),
-        email: expect.any(String),
-        techLead: expect.any(Boolean),
-      },
+      expected: expectedObjectShape,
     },
 
     {
@@ -20,13 +22,7 @@ describe("Access", () => {
       input: {
         isAdmin: false,
       },
-      expected: {
-        name: expect.any(String),
-        id: expect.any(Number),
-        email: expect.any(String),
-        techLead: expect.any(Boolean),
-        isApprentice: true,
-      },
+      expected: { ...expectedObjectShape, isApprentice: true },
     },
   ];
 
