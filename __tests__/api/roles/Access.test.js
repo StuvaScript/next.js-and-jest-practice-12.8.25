@@ -1,17 +1,43 @@
 import { getCredentials } from "@/api/roles/Access";
 
 describe("Access", () => {
-  test("populates admin data", () => {
-    const isAdmin = true;
-    const expectedObjectShape = {
-      name: expect.any(String),
-      id: expect.any(Number),
-      email: expect.any(String),
-      techLead: expect.any(Boolean),
-    };
+  const testCases = [
+    {
+      testName: "populates admin data",
+      input: {
+        isAdmin: true,
+      },
+      expected: {
+        name: expect.any(String),
+        id: expect.any(Number),
+        email: expect.any(String),
+        techLead: expect.any(Boolean),
+      },
+    },
 
-    const actualReturnValue = getCredentials(isAdmin);
+    {
+      testName: "populates apprentice data",
+      input: {
+        isAdmin: false,
+      },
+      expected: {
+        name: expect.any(String),
+        id: expect.any(Number),
+        email: expect.any(String),
+        techLead: expect.any(Boolean),
+        isApprentice: true,
+      },
+    },
+  ];
 
-    expect(actualReturnValue).toStrictEqual(expectedObjectShape);
-  });
+  for (const testCase of testCases) {
+    const { isAdmin } = testCase.input;
+    const { expected, testName } = testCase;
+
+    test(`${testName}`, () => {
+      const actualReturnValue = getCredentials(isAdmin);
+
+      expect(actualReturnValue).toStrictEqual(expected);
+    });
+  }
 });
