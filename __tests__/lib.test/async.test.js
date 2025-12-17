@@ -25,7 +25,7 @@ describe("async", () => {
   });
 
   test("the fetch fails with an error", () => {
-    expect(fetchReject()).rejects.toThrow("error");
+    expect(() => fetchReject()).rejects.toThrow("error");
   });
 
   //? ``** Using "async/await" to handle asynchronous data

@@ -99,6 +99,10 @@ describe("math", () => {
     expect(n).toBeTruthy();
   });
 
+  test.todo(
+    "Using the 'todo' keyword and only having a string argument allows you to save writing this test for later"
+  );
+
   test("throws on invalid input", () => {
     expect(() => {
       myFunction(5);
